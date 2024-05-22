@@ -33,4 +33,3 @@ def plot_2d_feature_space_by_class(X, y, feature_names, idx_feature_x, idx_featu
     plt.clim(-0.5, 2.5)
     plt.xlabel(feature_names[idx_feature_x])
     plt.ylabel(feature_names[idx_feature_y])
-
