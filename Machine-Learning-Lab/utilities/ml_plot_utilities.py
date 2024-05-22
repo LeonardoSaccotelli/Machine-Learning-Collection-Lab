@@ -23,13 +23,11 @@ def plot_2d_feature_space_by_class(X, y, feature_names, idx_feature_x, idx_featu
     if not (0 <= idx_feature_y < X.shape[1]):
         raise IndexError(f"Feature index {idx_feature_y} is out of range for the dataframe columns.")
 
-    # this formatter will label the colorbar with the correct target names
+    num_classes = len(target_names)
     formatter = plt.FuncFormatter(lambda i, *args: target_names[int(i)])
-    colors = plt.get_cmap('RdYlBu', len(target_names))
+    colors = plt.get_cmap('RdYlBu', num_classes)
     plt.figure()
-    plt.scatter(X[:, idx_feature_x], X[:, idx_feature_y],
-                c=y, cmap=colors)
-    plt.colorbar(ticks=range(0, len(target_names)), format=formatter)
-    plt.clim(-0.5, 2.5)
+    plt.scatter(X[:, idx_feature_x], X[:, idx_feature_y], c=y, cmap=colors)
+    plt.colorbar(ticks=range(0, num_classes), format=formatter)
     plt.xlabel(feature_names[idx_feature_x])
     plt.ylabel(feature_names[idx_feature_y])
