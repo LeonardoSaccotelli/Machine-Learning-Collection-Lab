@@ -63,7 +63,7 @@ def plot_bar_compare_stratification(y_non_stratified, y_stratified, return_plot=
     if return_plot:
         df_pivot.plot(x='Split', kind='bar', stacked=False,
                       title='Non-Stratified split vs Stratified split', rot=0,
-                      fontsize=16)
+                      fontsize=14)
 
     if plot_summary_table:
         print(df_pivot)
@@ -108,5 +108,5 @@ def plot_repeated_holdout_train_test_score(train_score, test_score, n_iter, metr
     plt.ylabel(metrics_name)
     plt.title('Training and Test Scores over ' + str(n_iter) + ' Repetitions', fontsize=16)
     plt.xticks(np.arange(1, n_iter + 1, step=1))
-    plt.legend()
+    plt.legend(loc="best")
     plt.show()
