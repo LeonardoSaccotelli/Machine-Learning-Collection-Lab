@@ -108,6 +108,14 @@ def plot_repeated_holdout_train_test_score(train_score, test_score, n_iter, metr
         ValueError: If the size of the training and test score arrays do not match.
         ValueError: If the size of the training score arrays does not match with n_iter.
         ValueError: If the size of the test score arrays does not match with n_iter.
+
+    Description:
+        The plot_repeated_holdout_train_test_score function plots the training
+        and test scores over multiple iterations for a specified metric.
+        It ensures the input arrays are consistent with the number of iterations,
+        raising errors if discrepancies are found.
+        This function is useful for visualizing the performance of a model across
+        repeated experiments, aiding in understanding its stability and generalization.
     """
     if n_iter <= 1:
         raise ValueError(f'n_iter = {n_iter}. Run the experiment more than {n_iter} to plot the results.')
