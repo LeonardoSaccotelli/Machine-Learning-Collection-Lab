@@ -4,7 +4,8 @@ import numpy as np
 
 
 def plot_2d_feature_space_by_class(X, y, feature_names, idx_feature_x, idx_feature_y, target_names):
-    """Plot in a 2D features space the class
+    """
+    Plot in a 2D features space the class
     distribution of the samples given in input.
 
     Args:
@@ -17,6 +18,15 @@ def plot_2d_feature_space_by_class(X, y, feature_names, idx_feature_x, idx_featu
 
     Raises:
         IndexError: If the idx_feature_x or idx_feature_y are out of range of the columns of X.
+
+    Description:
+        The plot_2d_feature_space_by_class function visualizes the distribution of sample
+        classes in a 2D feature space defined by two specified features
+        (idx_feature_x and idx_feature_y). Each sample's features are represented
+        on the plot, with class labels (y) determining the color coding.
+        The function ensures that the chosen feature indices are within the valid range
+        for the input data (X). This plot helps in understanding how classes are
+        distributed across different feature combinations.
     """
     # Check feature indices validity
     if not (0 <= idx_feature_x < X.shape[1]):
