@@ -36,6 +36,28 @@ def plot_2d_feature_space_by_class(X, y, feature_names, idx_feature_x, idx_featu
 
 
 def plot_bar_compare_stratification(y_non_stratified, y_stratified, return_plot=True, plot_summary_table=False):
+    """
+    Compare the distribution of class labels between non-stratified and stratified splits of a dataset.
+
+    Args:
+        :param y_non_stratified: Array-like or Series of class labels from a non-stratified split.
+        :param y_stratified: Array-like or Series of class labels from a stratified split.
+        :param return_plot: Whether to return a plot (default True).
+        :param plot_summary_table: Whether to print a summary table of label counts (default False).
+
+    Returns:
+        :return: If `return_plot` is True, returns a matplotlib Axes object containing the bar plot.
+
+    Raises:
+        :raises ValueError: If `y_non_stratified` and `y_stratified` have different lengths.
+
+    Description:
+        The `plot_bar_compare_stratification` function compares the distribution of class labels between
+        a non-stratified and a stratified split of a dataset. It counts the number of instances in each
+        class for both splits, combines the counts into a DataFrame, and optionally plots a bar chart
+        and/or prints a summary table.
+    """
+
     # Count the number of instances in each class, both for
     # stratified and non-stratified strategy
     non_stratified_labels, non_stratified_counts = np.unique(y_non_stratified, return_counts=True)
@@ -70,7 +92,8 @@ def plot_bar_compare_stratification(y_non_stratified, y_stratified, return_plot=
 
 
 def plot_repeated_holdout_train_test_score(train_score, test_score, n_iter, metrics_name):
-    """Plot the training and test score for a metric defined by the user
+    """
+    Plot the training and test score for a metric defined by the user
     over a specific number of iterations.
 
     Args:
